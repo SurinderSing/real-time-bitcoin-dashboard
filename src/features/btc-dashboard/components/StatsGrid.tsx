@@ -47,23 +47,19 @@ export const StatsGrid = memo(function StatsGrid(): React.JSX.Element {
         <StatsCard
           label="Mark Price"
           value={formatPrice(ticker.markPrice)}
-          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="24h High"
           value={formatPrice(ticker.highPrice24h)}
-          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="24h Low"
           value={formatPrice(ticker.lowPrice24h)}
-          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="24h Volume"
           value={formatVolume(ticker.turnover24h)}
           suffix="BTC"
-          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
       </div>
       <div className="mt-3">

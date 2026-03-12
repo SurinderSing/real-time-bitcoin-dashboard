@@ -55,7 +55,7 @@ export const StatsCard = memo(function StatsCard({
   const isPercentage = suffix === "%";
 
   return (
-    <Card className={flashClass}>
+    <Card className={`flex h-full flex-col ${flashClass}`}>
       <p className="mb-1 text-xs font-medium tracking-wide text-gray-500 dark:text-gray-400">
         {label}
       </p>
