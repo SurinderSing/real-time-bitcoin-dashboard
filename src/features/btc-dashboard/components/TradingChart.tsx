@@ -17,6 +17,7 @@ interface TradingViewWidgetConfig {
   enable_publishing: boolean;
   allow_symbol_change: boolean;
   hide_side_toolbar: boolean;
+  hide_legend: boolean;
   container_id: string;
 }
 
@@ -59,6 +60,7 @@ export const TradingChart = memo(function TradingChart({ theme }: TradingChartPr
         enable_publishing: false,
         allow_symbol_change: false,
         hide_side_toolbar: false,
+        hide_legend: false,
         container_id: containerId,
       });
     }
@@ -89,8 +91,9 @@ export const TradingChart = memo(function TradingChart({ theme }: TradingChartPr
   }, [theme]);
 
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700/50 dark:bg-gray-800/80">
+    <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700/50 dark:bg-gray-800/80">
       <div ref={containerRef} className="h-[500px] w-full" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-10 w-40 bg-white dark:bg-[#131722]" />
     </div>
   );
 });

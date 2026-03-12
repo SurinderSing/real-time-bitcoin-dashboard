@@ -42,7 +42,7 @@ export const SparklineChart = memo(function SparklineChart({
         </defs>
         <YAxis domain={domain} hide />
         <Area
-          type="monotone"
+          type="linear"
           dataKey="price"
           stroke={color}
           strokeWidth={1.5}

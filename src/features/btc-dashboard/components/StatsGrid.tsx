@@ -33,6 +33,7 @@ export const StatsGrid = memo(function StatsGrid(): React.JSX.Element {
   const changeValue = formatPercent(ticker.price24hPcnt);
   const changeNum = parseFloat(ticker.price24hPcnt) * 100;
   const isPositive = changeNum >= 0;
+  const sparkColor = isPositive ? "#22c55e" : "#ef4444";
 
   return (
     <div>
@@ -41,24 +42,28 @@ export const StatsGrid = memo(function StatsGrid(): React.JSX.Element {
           label="Last Price"
           value={formatPrice(ticker.lastPrice)}
           previousValue={formatPrice(previousLastPrice)}
-          sparkline={<SparklineChart data={priceHistory} height={40} color={isPositive ? "#22c55e" : "#ef4444"} />}
+          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="Mark Price"
           value={formatPrice(ticker.markPrice)}
+          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="24h High"
           value={formatPrice(ticker.highPrice24h)}
+          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="24h Low"
           value={formatPrice(ticker.lowPrice24h)}
+          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
         <StatsCard
           label="24h Volume"
           value={formatVolume(ticker.turnover24h)}
-          suffix="USDT"
+          suffix="BTC"
+          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
       </div>
       <div className="mt-3">
@@ -66,6 +71,7 @@ export const StatsGrid = memo(function StatsGrid(): React.JSX.Element {
           label="24h Change"
           value={changeValue}
           suffix="%"
+          sparkline={<SparklineChart data={priceHistory} height={40} color={sparkColor} />}
         />
       </div>
     </div>
