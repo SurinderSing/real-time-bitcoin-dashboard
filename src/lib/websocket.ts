@@ -70,8 +70,16 @@ export function createWebSocket(config: WebSocketConfig): () => void {
       ws.onclose = null;
       ws.onerror = null;
       ws.onmessage = null;
-      ws.onopen = null;
-      ws.close();
+      if (ws.readyState === WebSocket.CONNECTING) {
+        ws.onopen = (): void => {
+          ws?.close();
+        };
+      } else {
+        ws.onopen = null;
+        if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CLOSING) {
+          ws.close();
+        }
+      }
     }
   }
 
