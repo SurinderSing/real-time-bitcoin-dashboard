@@ -1,5 +1,5 @@
 import { memo, useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Card } from "../../../components/Card";
 
 interface StatsCardProps {
@@ -59,12 +59,12 @@ export const StatsCard = memo(function StatsCard({
       <p className="mb-1 text-xs font-medium tracking-wide text-gray-500 dark:text-gray-400">
         {label}
       </p>
-      <AnimatePresence mode="wait">
+      <div className="relative">
         <motion.p
           key={value}
-          initial={{ opacity: 0.6, y: 2 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0.8, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.15 }}
           className={`text-2xl font-bold ${
             isPercentage
               ? isPositive
@@ -77,7 +77,7 @@ export const StatsCard = memo(function StatsCard({
           {value}
           {suffix && <span className="ml-1 text-sm font-medium">{suffix}</span>}
         </motion.p>
-      </AnimatePresence>
+      </div>
       {sparkline !== undefined && sparkline !== null && (
         <div className="mt-2">{sparkline}</div>
       )}
