@@ -2,6 +2,10 @@
 
 A sleek, high-performance dashboard application built with React, Vite, and Tailwind CSS. It connects to the ByBit WebSocket API to provide real-time BTC/USDT market data, presented through interactive charts and beautifully animated statistics.
 
+## 🪄 Live
+
+https://realtime-bitcoin-dashboard.netlify.app/
+
 ## ✨ Features
 
 - **Real-Time Data**: Live integration with ByBit's WebSocket API for instantaneous market updates.
