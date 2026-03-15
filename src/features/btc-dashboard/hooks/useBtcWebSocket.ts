@@ -23,6 +23,7 @@ export function useBtcWebSocket(): void {
       url: "wss://stream.bybit.com/v5/public/linear",
       onMessage: (raw) => {
         if (!isTickerMessage(raw)) return;
+
         const d = raw.data;
         const partial: Record<string, string> = {};
 

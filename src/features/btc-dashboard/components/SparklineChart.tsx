@@ -28,7 +28,7 @@ export const SparklineChart = memo(function SparklineChart({
     const prices = data.map((d) => d.price);
     const min = Math.min(...prices);
     const max = Math.max(...prices);
-    const padding = (max - min) * 0.1 || 1;
+    const padding = (max - min) * 0.5 || 1;
     return [min - padding, max + padding];
   }, [data]);
 
@@ -48,7 +48,7 @@ export const SparklineChart = memo(function SparklineChart({
         <XAxis dataKey="index" type="number" domain={[0, 59]} hide />
         <YAxis domain={domain} hide />
         <Area
-          type="linear"
+          type="monotone"
           dataKey="price"
           stroke={color}
           strokeWidth={1.5}
